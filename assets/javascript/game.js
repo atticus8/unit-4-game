@@ -1,8 +1,3 @@
-var score = 0;
-var newScore = 0;
-
-
-
 var startUp = function() {
     objectiveRandom();
     
@@ -13,8 +8,7 @@ var startUp = function() {
     console.log("Yellow value:" + yellow);
     
     console.log("Green value:" + green);
-    var guesses = 0;
-    var score = 0;
+    
 }
 
 
@@ -23,6 +17,11 @@ var objectiveRandom = function() {
     console.log("objective:" + objective);
     document.querySelector("#objective").innerHTML = objective;
 }
+
+$("#redButton").on("click", function(){
+    guessRed();
+});
+
 
 
 var red = parseInt((Math.floor(Math.random() * 11) + 1));
@@ -39,32 +38,33 @@ var yellow = parseInt((Math.floor(Math.random() * 11) + 1));
 
 var green = parseInt((Math.floor(Math.random() * 11) + 1));
 
-
+var score = 0;
 
 var guessRed = function() {
-    let newScore = (score + red);
-    document.querySelector("#score").innerHTML = newScore;
-    let score = newScore;
+    console.log(score);
+    let newScore = parseInt(parseInt(score) + parseInt(red));
+    document.querySelector("#score").innerHTML = parseInt(newScore);
+    console.log(newScore);
 }
 
 var guessBlue = function() {
     newScore = (score + blue);
-    document.querySelector("#score").innerHTML = newScore;
+    document.querySelector("#score").innerHTML = parseInt(newScore);
     let score = newScore;
 }
 
 var guessYellow = function() {
     newScore = (score + yellow);
-    document.querySelector("#score").innerHTML = newScore;
+    document.querySelector("#score").innerHTML = parseInt(newScore);
     let score = newScore;
 }
 
 var guessGreen = function() {
     newScore = (score + green);
-    document.querySelector("#score").innerHTML = newScore;
+    document.querySelector("#score").innerHTML = parseInt(newScore);
     let score = newScore;
 }
-document.querySelector("#redButton").addEventListener("click", guessRed);
+
 
 if(score = objective){
     wins++
